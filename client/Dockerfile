@@ -1,6 +1,6 @@
 FROM node:10.13-alpine as builder
 WORKDIR /app
-COPY ["package.json", "package-lock.json*", "npm-shrinkwrap.json*", "./"]
+COPY ./package.json ./
 RUN npm install --production --silent && mv node_modules ../
 COPY . .
 CMD ["npm", "run", "build"]
