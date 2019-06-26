@@ -1,7 +1,7 @@
 FROM node:10.13-alpine as builder
 WORKDIR /app
-COPY ./package.json ./
-RUN npm install --production --silent && mv node_modules ../
+COPY package.json .
+RUN npm install
 COPY . .
 CMD ["npm", "run", "build"]
 RUN ls
