@@ -9,10 +9,10 @@ script:
   - docker run -e CI=true bebetaro/react-test npm test
 
 after_success:
-  - docker build -t bebetaro/multi-client .
-  - docker build -t bebetaro/multi-nginx .
-  - docker build -t bebetaro/multi-server .
-  - docker build -t bebetaro/multi-worker .
+  - docker build -t bebetaro/multi-client ./client
+  - docker build -t bebetaro/multi-nginx ./nginx
+  - docker build -t bebetaro/multi-server ./server
+  - docker build -t bebetaro/multi-worker ./worker
   #Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   #Take those image and push them to docker hub
